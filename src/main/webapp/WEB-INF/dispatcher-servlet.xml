@@ -1,0 +1,68 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd
+  	http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd
+   ">
+
+	<context:component-scan
+		base-package="com.ankan.educational.controller" />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:annotation-driven />
+	<mvc:resources location="/assets/"
+		mapping="/resources/**" />
+	<bean id="coursedao"
+		class="com.ankan.educational.dao.CourseDAOImpl" />
+		
+	<bean id="enquirydao" class="com.ankan.educational.dao.EnquiryDAOImpl"/>
+	
+	<bean id="feesdao" class="com.ankan.educational.dao.FeesDAOImpl"/>
+	
+	<bean id="enrollmentdao" class="com.ankan.educational.dao.EnrollmentDAOImpl"/>
+
+	<bean id="testdao" class="com.ankan.educational.dao.TestDAOImpl"/>
+
+	<bean id="questiondao" class="com.ankan.educational.dao.QuestionDAOImpl"/>
+	
+	<bean id="testquestionsdao" class="com.ankan.educational.dao.TestQuestionsDAOImpl"/>
+	
+	<bean id="scoredao" class="com.ankan.educational.dao.ScoreDAOImpl"/>
+	
+	<bean id="sectiondao" class="com.ankan.educational.dao.SectionDAOImpl"/>
+	
+	<bean id="topicdao" class="com.ankan.educational.dao.TopicDAOImpl"/>
+	
+	<bean id="materialdao" class="com.ankan.educational.dao.MaterialDAOImpl"/>
+	
+	<bean id="userdao" class="com.ankan.educational.dao.UserDAOImpl" />
+	
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/spring" />
+		<property name="username" value="Ankan" />
+		<property name="password" value="Ankan@123" />
+	</bean>
+</beans>
+
+
+
+

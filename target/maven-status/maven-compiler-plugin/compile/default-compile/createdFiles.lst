@@ -1,0 +1,5 @@
+com/ankan/educational/dto/Course.class
+com/ankan/educational/daoimpl/CourseDaoimpl.class
+com/ankan/educational/dao/CourseDao.class
+com/ankan/educational/controller/PageController.class
+com/ankan/educational/dao/CourseMapper.class
